@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelliwise Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for text readability */
+            z-index: -1;
+        }
+        .header {
+            padding: 20px;
+            color: #ffffff;
+            text-align: center; /* Center the header text */
+            position: relative;
+            z-index: 1;
+            font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
+        }
+        .header h1 {
+            font-size: 36px; /* Increased size */
+            font-weight: bold; /* Ensure it remains bold */
+            margin: 0; /* Ensure no extra spacing */
+            letter-spacing: 2px; /* Add slight spacing between letters for a modern look */
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            z-index: 1;
+        }
+        .content h1 {
+            font-size: 48px;
+            font-weight: 400;
+            margin: 0;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Slight shadow for readability */
+        }
+        .footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 20px;
+            font-weight: 400;
+            position: relative; /* Required for absolute positioning of child elements */
+            z-index: 1;
+        }
+        .footer p {
+            margin: 10px 0;
+        }
+        .footer .copyright {
+            font-size: 14px;
+            color: #cccccc;
+            text-align: left; /* Align copyright to the left */
+        }
+        /* Style for the music symbol */
+        .music-symbol {
+            position: absolute;
+            right: 20px; /* Right side alignment */
+            top: 20px; /* Position above the footer content */
+            font-size: 40px;
+            color: #ffffff;
+            cursor: pointer;
+            z-index: 3; /* Higher than footer's z-index */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .music-symbol:hover {
+            color: #00ff00; /* Green on hover, inspired by WhatsApp button */
+            transform: scale(1.2); /* Slight scale effect on hover */
+        }
+        /* Hide default audio controls */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="/home/xavious/Documents/Project/Teaser/Teaser.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    <div class="header">
+        <h1>INTELLIWISE ACADEMY</h1>
+    </div>
+    <div class="content">
+        <h1>Launching Soon</h1>
+    </div>
+    <div class="footer">
+        <div class="music-symbol" onclick="toggleAudio()">♪</div>
+        <h1>Keep Watching This Space</h1>
+        <h4 class="copyright">Copyright © 2025 Intelliwise Academy - All Rights Reserved.</h4>
+    </div>
+    <!-- Audio element (hidden, controlled by symbol) -->
+    <audio id="background-audio">
+        <source src="/home/xavious/Documents/Project/Teaser/teaser_audio.mpeg" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const audio = document.getElementById('background-audio');
+        let isPlaying = false;
+        const musicSymbol = document.querySelector('.music-symbol');
+
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                musicSymbol.textContent = '♪'; // Show off symbol
+                isPlaying = false;
+            } else {
+                audio.play();
+                musicSymbol.textContent = '►'; // Show on symbol
+                isPlaying = true;
+            }
+        }
+    </script>
+</body>
+</html>
