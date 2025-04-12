@@ -24,6 +24,7 @@
             height: 100%;
             object-fit: cover;
             z-index: -2;
+            border: none; /* Remove iframe border */
         }
         .overlay {
             position: fixed;
@@ -105,10 +106,8 @@
     </style>
 </head>
 <body>
-    <video class="video-background" autoplay muted loop>
-        <source src="/home/xavious/Documents/Project/Teaser/Teaser.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <!-- Replaced video with YouTube iframe -->
+    <iframe class="video-background" src="https://www.youtube.com/embed/Z45cevxll-E?autoplay=1&mute=1&loop=1&playlist=Z45cevxll-E&controls=0" frameborder="0" allowfullscreen></iframe>
     <div class="overlay"></div>
     <div class="header">
         <h1>INTELLIWISE ACADEMY</h1>
